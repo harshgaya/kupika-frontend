@@ -1,6 +1,6 @@
 import { use } from "react";
 
-const API_URL = "kupika-api.softplix.com/api/";
+const API_URL = "https://kupika-api.softplix.com/api/";
 export default API_URL;
 
 export async function getProducts() {
