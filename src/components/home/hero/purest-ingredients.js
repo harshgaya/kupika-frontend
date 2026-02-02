@@ -3,19 +3,19 @@ import Image from "next/image";
 export default function PurestIngredients() {
   const ingredients = [
     {
-      name: "Ashwagandha",
-      desc: "Renowned for reducing stress and boosting energy levels naturally.",
-      image: "/home/ingredients/ashw.png",
+      name: "Makar Dhwaj",
+      desc: "Helps reduce weakness, fatigue, and lack of energy in the body.",
+      image: "/home/ingredients/makar.jpeg",
     },
     {
       name: "Shilajit",
-      desc: "A powerhouse mineral resin that revitalizes strength and endurance.",
-      image: "/home/ingredients/shilajit.png",
+      desc: "Helps improve physical power and endurance,Reduces weakness, fatigue, and tiredness",
+      image: "/home/ingredients/shilajit.webp",
     },
     {
-      name: "Bhringraj",
-      desc: "The 'King of Herbs' for hair, promoting growth and reducing fall.",
-      image: "/home/ingredients/bhringraj.png",
+      name: "Abhrakh Bhasms",
+      desc: "Strengthens Shukra Dhatu and supports fertility in both men and women",
+      image: "/home/ingredients/abhrak.webp",
     },
   ];
 

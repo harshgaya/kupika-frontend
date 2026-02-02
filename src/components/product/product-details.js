@@ -204,19 +204,19 @@ export default function ProductDetails({ product }) {
           <div className="mt-10 grid gap-8 sm:grid-cols-3">
             {[
               {
-                name: "Ashwagandha",
-                desc: "Reduces stress and improves energy.",
-                img: "/home/ingredients/ashw.png",
+                name: "Makar Dhwaj",
+                desc: "Helps reduce weakness, fatigue, and lack of energy in the body.",
+                img: "/home/ingredients/makar.jpeg",
               },
               {
                 name: "Shilajit",
-                desc: "Boosts strength and endurance.",
-                img: "/home/ingredients/shilajit.png",
+                desc: "Helps improve physical power and endurance,Reduces weakness, fatigue, and tiredness",
+                img: "/home/ingredients/shilajit.webp",
               },
               {
-                name: "Safed Musli",
-                desc: "Known for rejuvenating properties.",
-                img: "/home/ingredients/bhringraj.png",
+                name: "Abhrakh Bhasms",
+                desc: "Strengthens Shukra Dhatu and supports fertility in both men and women",
+                img: "/home/ingredients/abhrak.webp",
               },
             ].map((ing) => (
               <div key={ing.name}>

@@ -12,7 +12,7 @@ export async function getProducts() {
 
   if (!res.ok) {
     console.error(await res.text());
-    throw new Error("Failed to fetch products");
+    return null;
   }
 
   return res.json();

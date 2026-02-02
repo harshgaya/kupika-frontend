@@ -59,7 +59,7 @@ export default function Hero() {
           <div className="relative mx-auto w-full max-w-md">
             <div className="relative aspect-[3/4] overflow-hidden">
               <Image
-                src="/home/hero_image.png"
+                src="/home/hero-img.jpeg"
                 alt="Ayurvedic wellness product"
                 fill
                 priority
