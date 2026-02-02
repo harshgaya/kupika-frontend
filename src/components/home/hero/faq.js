@@ -5,24 +5,29 @@ import { useState } from "react";
 export default function FAQSection() {
   const faqs = [
     {
-      question: "How do I use the Horse Fire Tablets?",
+      question: "How should I take Kaam Creator Capsules?",
       answer:
-        "Take 1–2 tablets daily with warm milk or water, preferably before bedtime. Consistent use for 3 months is recommended for best results.",
+        "Take 1–2 capsules daily with warm water or milk, preferably after meals or as directed by a healthcare professional. Regular use is recommended for best results.",
     },
     {
-      question: "Is the Herbal Hair Oil suitable for all hair types?",
+      question: "What are the main benefits of Kaam Creator Capsules?",
       answer:
-        "Yes, the Herbal Hair Oil is suitable for all hair types and is formulated to nourish the scalp without causing irritation.",
+        "Kaam Creator Capsules help boost energy, improve stamina, enhance physical and mental performance, and reduce fatigue using a 100% Ayurvedic formulation.",
+    },
+    {
+      question: "Is this supplement suitable for daily use?",
+      answer:
+        "Yes, the capsules are made from natural Ayurvedic ingredients and are suitable for daily use when taken in the recommended dosage.",
     },
     {
       question: "Are there any side effects?",
       answer:
-        "Our products are made with natural ingredients and are generally safe. However, if you have a medical condition, consult your physician before use.",
+        "Kaam Creator Capsules are generally safe and free from harmful chemicals. However, individuals with medical conditions or those on medication should consult a doctor before use.",
     },
     {
-      question: "How long does delivery take?",
+      question: "How long does it take to see results?",
       answer:
-        "Delivery typically takes 3–5 business days depending on your location.",
+        "Results may vary from person to person, but noticeable improvements in energy and stamina are commonly experienced within a few weeks of consistent use.",
     },
   ];
 

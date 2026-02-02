@@ -14,7 +14,7 @@ export default function PurestIngredients() {
     },
     {
       name: "Abhrakh Bhasms",
-      desc: "Strengthens Shukra Dhatu and supports fertility in both men and women",
+      desc: "Strengthens Shukra Dhatu and supports fertility",
       image: "/home/ingredients/abhrak.webp",
     },
   ];

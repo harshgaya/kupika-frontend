@@ -29,7 +29,8 @@ export default function GoogleLoginModal({ open, onClose, onSuccess }) {
       window.google.accounts.id.cancel();
 
       window.google.accounts.id.initialize({
-        client_id: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
+        client_id:
+          "349571402392-eduuaq2lpsbol3hqvdo1rounlbkbjg6o.apps.googleusercontent.com",
         callback: (response) => {
           console.log("Google raw response:", response);
 
