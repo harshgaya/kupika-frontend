@@ -47,7 +47,7 @@ export default function AddressForm({
   }
 
   return (
-    <section className="w-full bg-white rounded-xl p-6 sm:p-8">
+    <section className="w-full bg-white rounded-xl max-h-[85vh] overflow-y-auto p-6 sm:p-8">
       <div className="mx-auto max-w-3xl">
         <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-gray-900">
           {editingAddress ? "Edit Address" : "Add New Address"}
