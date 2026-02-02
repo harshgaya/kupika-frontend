@@ -180,13 +180,16 @@ export async function order() {
   const json = await res.json();
   return json;
 }
-export async function getChechout() {
-  const userId = localStorage.getItem("user_id");
+export async function getChechout(item) {
+  const userId =
+    typeof window !== "undefined" ? localStorage.getItem("user_id") : null;
 
-  console.log("Getting checkout for user ID:", userId);
+  const payload = {
+    user_id: userId || null,
+  };
 
   if (!userId) {
-    return null;
+    payload.guest_id = item.guest_id;
   }
 
   const res = await fetch(`${API_URL}get-checkout`, {
@@ -194,7 +197,7 @@ export async function getChechout() {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ user_id: userId }),
+    body: JSON.stringify(payload),
     cache: "no-store",
   });
 

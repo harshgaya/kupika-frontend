@@ -1,10 +1,11 @@
 "use client";
 
+import { support_mobile, whatsapp } from "@/src/lib/constants";
 import { FaPhoneAlt, FaWhatsapp } from "react-icons/fa";
 
 export default function FloatingContactButtons({ site }) {
-  const phone = site?.whatsappNumber || "919999999999";
-  const whatsappLink = `https://wa.me/${phone}`;
+  const phone = support_mobile;
+  const whatsappLink = whatsapp;
 
   return (
     <div className="fixed right-4 top-1/2 z-50 flex -translate-y-1/2 flex-col gap-3">

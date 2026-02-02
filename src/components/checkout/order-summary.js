@@ -7,12 +7,21 @@ export default function OrderSummary({ onPlaceOrder, placing }) {
   const [item, setItem] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  const getGuestId = () => {
+    let id = localStorage.getItem("guest_id");
+    if (!id) {
+      id = crypto.randomUUID();
+      localStorage.setItem("guest_id", id);
+    }
+    return id;
+  };
+
   useEffect(() => {
     const fetchCheckout = async () => {
       try {
         setLoading(true);
 
-        const res = await getChechout();
+        const res = await getChechout({ guest_id: getGuestId() });
         console.log("Checkout response:", res[0]);
 
         setItem(res[0]);

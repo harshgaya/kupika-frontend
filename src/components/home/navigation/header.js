@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { logo } from "@/src/lib/constants";
 
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL;
 
@@ -28,23 +29,20 @@ export default function Header({ site }) {
         <div className="flex h-16 items-center justify-between">
           {/* LOGO */}
           <Link href="/" className="flex items-center gap-2">
-            {/* ICON */}
-            {site?.favicon?.url && (
-              <Image
-                src={`${STRAPI_URL}${site.favicon.url}`}
-                alt={`${site.siteName} logo`}
-                width={36}
-                height={36}
-                priority
-                unoptimized
-                className="shrink-0"
-              />
-            )}
+            <Image
+              src={`${logo}`}
+              alt={`logo`}
+              width={150}
+              height={36}
+              priority
+              unoptimized
+              className="shrink-0"
+            />
 
             {/* NAME */}
-            <span className="text-xl font-semibold tracking-wide text-secondary">
-              {site?.siteName || "KUPIKA"}
-            </span>
+            {/* <span className="text-xl font-semibold tracking-wide text-secondary">
+              {"KUPIKA"}
+            </span> */}
           </Link>
 
           {/* DESKTOP NAV */}

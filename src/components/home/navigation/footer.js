@@ -1,6 +1,14 @@
 import Link from "next/link";
 import Image from "next/image";
 import { FaInstagram, FaFacebookF, FaYoutube } from "react-icons/fa";
+import {
+  email,
+  facebook,
+  insta,
+  logo,
+  support_mobile,
+  youtube,
+} from "@/src/lib/constants";
 
 export default function Footer() {
   return (
@@ -12,13 +20,13 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-2">
               <Image
-                src="/logo.png" // place logo in /public
+                src={logo} // place logo in /public
                 alt="Kupika Ayurveda"
-                width={28}
+                width={150}
                 height={28}
                 className="brightness-0 invert"
               />
-              <span className="text-lg font-semibold">Kupika Ayurveda</span>
+              {/* <span className="text-lg font-semibold">Kupika Ayurveda</span> */}
             </div>
 
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/70">
@@ -48,8 +56,8 @@ export default function Footer() {
           <div>
             <h4 className="text-sm font-semibold">Contact</h4>
             <ul className="mt-4 space-y-2 text-sm text-white/70">
-              <li>Email: support@kupikaayurveda.com</li>
-              <li>Phone: +91 90000 00000</li>
+              <li>Email: {email}</li>
+              <li>Phone: {support_mobile}</li>
             </ul>
           </div>
 
@@ -58,7 +66,7 @@ export default function Footer() {
             <h4 className="text-sm font-semibold">Follow Us</h4>
             <div className="mt-4 flex items-center gap-4 text-xl text-white/80">
               <Link
-                href="https://instagram.com/kupikaayurveda"
+                href={insta}
                 target="_blank"
                 aria-label="Instagram"
                 className="hover:text-white"
@@ -67,7 +75,7 @@ export default function Footer() {
               </Link>
 
               <Link
-                href="https://facebook.com/kupikaayurveda"
+                href={facebook}
                 target="_blank"
                 aria-label="Facebook"
                 className="hover:text-white"
@@ -76,7 +84,7 @@ export default function Footer() {
               </Link>
 
               <Link
-                href="https://youtube.com/@kupikaayurveda"
+                href={youtube}
                 target="_blank"
                 aria-label="YouTube"
                 className="hover:text-white"

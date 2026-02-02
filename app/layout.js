@@ -15,19 +15,54 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const metadata = {
+  metadataBase: new URL("https://softplix.com/"),
+  title: "SoftPlix: Website & Mobile App Development Company",
+  description:
+    "SoftPlix provides innovative software solutions to empower businesses worldwide with cutting-edge technology and exceptional service.",
+  keywords:
+    "SoftPlix, Software Solutions, Business Technology, Innovative Software, IT Services,Mobile App Development Company, Website Development Company, Custom Software Development, Technology Consulting",
+  authors: [{ name: "SoftPlix", url: "https://softplix.com/" }],
+  creator: "SoftPlix: Website & Mobile App Development Company",
+  openGraph: {
+    title: "SoftPlix: Website & Mobile App Development Company",
+    description:
+      "SoftPlix provides innovative software solutions to empower businesses worldwide with cutting-edge technology and exceptional service.",
+    url: "https://softplix.com/",
+    type: "website",
+    siteName: "SoftPlix: Website & Mobile App Development Company",
+    images: [
+      {
+        url: "/home/header/softplix-logo.png",
+        width: 1200,
+        height: 630,
+        alt: "SoftPlix Logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "Kupika",
+    title: "Kupika Ayurveda | Natural & Authentic Ayurvedic Products",
+    description:
+      "Kupika Ayurveda offers authentic Ayurvedic products crafted with natural ingredients to support holistic health and wellness.",
+    images: ["/home/header/softplix-logo.png"],
+  },
+  icons: {
+    icon: "/home/header/softplix-logo.png",
+    apple: "/home/header/softplix-logo.png",
+  },
+  alternates: {
+    canonical: "https://kupkika.in/",
+    languages: {
+      en: "https://kupkika.in/",
+    },
+  },
+};
+
 export default async function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
-        {/* Hardcoded SEO */}
-        <title>Kupika Ayurveda | Natural & Authentic Ayurvedic Products</title>
-        <meta
-          name="description"
-          content="Kupika Ayurveda offers authentic Ayurvedic products crafted with natural ingredients to support holistic health and wellness."
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </head>
-
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
