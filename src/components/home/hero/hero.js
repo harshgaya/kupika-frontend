@@ -16,13 +16,13 @@ export default function Hero() {
 
             <p className="mt-6 max-w-lg text-base leading-relaxed text-gray-600">
               Authentic Ayurvedic wellness for the modern man. Formulated with
-              premium herbs to restore energy, confidence, and hair health.
+              premium herbs to restore energy, confidence, and good health.
             </p>
 
             {/* CTA BUTTONS */}
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
-                href="#shop"
+                href="/product/kaam-creator"
                 className="rounded-full bg-primary px-6 py-3 text-sm font-medium text-white transition hover:opacity-90"
               >
                 Shop Now

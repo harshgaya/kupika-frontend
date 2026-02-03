@@ -64,7 +64,7 @@ export default function Header({ site }) {
           {/* DESKTOP CTA */}
           <div className="hidden md:block">
             <Link
-              href="#shop"
+              href="/product/kaam-creator"
               className="rounded-full bg-secondary px-6 py-2 text-sm font-medium text-white transition-opacity hover:opacity-90"
             >
               Shop Now
@@ -106,7 +106,7 @@ export default function Header({ site }) {
             ))}
 
             <Link
-              href="#shop"
+              href="/product/kaam-creator"
               onClick={() => setOpen(false)}
               className="mt-2 w-full rounded-full bg-primary
  px-6 py-2 text-center text-white transition-opacity hover:opacity-90"

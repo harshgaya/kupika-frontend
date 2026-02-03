@@ -11,7 +11,8 @@ export default function BestSellers({ products = [] }) {
             Our Best Sellers
           </h2>
           <p className="mt-3 text-sm text-gray-600 sm:text-base">
-            Expertly crafted formulations for men&apos;s wellness and hair care.
+            Expertly crafted formulations for men&apos;s wellness and overall
+            health.
           </p>
         </div>
 

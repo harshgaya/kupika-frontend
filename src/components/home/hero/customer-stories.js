@@ -4,13 +4,13 @@ export default function CustomerStories() {
   const reviews = [
     {
       name: "Aditya R.",
-      text: "I've been using the Horse Fire tablets for a month now. My energy levels throughout the day have significantly improved. Highly recommend.",
+      text: "I've been using the Kaam Creator tablets for a month now. My energy levels throughout the day have significantly improved. Highly recommend.",
       rating: 5,
       avatar: "/customers/aditya.jpg",
     },
     {
       name: "Karan M.",
-      text: "The herbal hair oil is fantastic. It's not sticky like other oils and has a pleasant earthy smell. My hair fall has reduced noticeably.",
+      text: "I’ve been taking Kaam Creator tablets for about a month now, and I can genuinely feel the difference. My daily energy levels are much better, and I don’t feel as tired as before. Overall, a good experience.",
       rating: 5,
       avatar: "/customers/karan.jpg",
     },
