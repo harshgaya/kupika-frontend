@@ -16,46 +16,46 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://softplix.com/"),
-  title: "SoftPlix: Website & Mobile App Development Company",
+  metadataBase: new URL("https://kupika.in/"),
+  title: "Kupika Ayurveda | Natural & Authentic Ayurvedic Products",
   description:
-    "SoftPlix provides innovative software solutions to empower businesses worldwide with cutting-edge technology and exceptional service.",
+    "Kupika Ayurveda offers authentic Ayurvedic products crafted with natural ingredients to support holistic health, wellness, and daily vitality.",
   keywords:
-    "SoftPlix, Software Solutions, Business Technology, Innovative Software, IT Services,Mobile App Development Company, Website Development Company, Custom Software Development, Technology Consulting",
-  authors: [{ name: "SoftPlix", url: "https://softplix.com/" }],
-  creator: "SoftPlix: Website & Mobile App Development Company",
+    "Kupika Ayurveda, Ayurvedic Products, Natural Ayurveda, Herbal Supplements, Holistic Wellness, Authentic Ayurveda, Indian Ayurveda, Health Supplements",
+  authors: [{ name: "Kupika Ayurveda", url: "https://kupika.in/" }],
+  creator: "Kupika Ayurveda",
   openGraph: {
-    title: "SoftPlix: Website & Mobile App Development Company",
+    title: "Kupika Ayurveda | Natural & Authentic Ayurvedic Products",
     description:
-      "SoftPlix provides innovative software solutions to empower businesses worldwide with cutting-edge technology and exceptional service.",
-    url: "https://softplix.com/",
+      "Kupika Ayurveda offers authentic Ayurvedic products crafted with natural ingredients to support holistic health, wellness, and daily vitality.",
+    url: "https://kupika.in/",
     type: "website",
-    siteName: "SoftPlix: Website & Mobile App Development Company",
+    siteName: "Kupika Ayurveda",
     images: [
       {
-        url: "/home/header/softplix-logo.png",
+        url: "/home/header/logo.png",
         width: 1200,
         height: 630,
-        alt: "SoftPlix Logo",
+        alt: "Kupika Ayurveda Logo",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    site: "Kupika",
+    site: "@kupikaayurveda",
     title: "Kupika Ayurveda | Natural & Authentic Ayurvedic Products",
     description:
-      "Kupika Ayurveda offers authentic Ayurvedic products crafted with natural ingredients to support holistic health and wellness.",
-    images: ["/home/header/softplix-logo.png"],
+      "Discover authentic Ayurvedic products made with natural ingredients to support holistic health and wellness.",
+    images: ["/home/header/logo.png"],
   },
   icons: {
-    icon: "/home/header/softplix-logo.png",
-    apple: "/home/header/softplix-logo.png",
+    icon: "/home/header/logo.png",
+    apple: "/home/header/logo.png",
   },
   alternates: {
-    canonical: "https://kupkika.in/",
+    canonical: "https://kupika.in/",
     languages: {
-      en: "https://kupkika.in/",
+      en: "https://kupika.in/",
     },
   },
 };
