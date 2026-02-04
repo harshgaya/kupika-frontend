@@ -40,7 +40,7 @@ export default function BestSellers({ products = [] }) {
                   {product.title}
                 </h3>
 
-                <p className="mt-2 text-sm text-gray-600">
+                <p className="mt-2 text-sm text-gray-600 line-clamp-4">
                   {product.description}
                 </p>
 

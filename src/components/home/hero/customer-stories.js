@@ -59,13 +59,13 @@ export default function CustomerStories() {
 
               {/* USER */}
               <div className="mt-6 flex items-center gap-3">
-                <Image
+                {/* <Image
                   src={review.avatar}
                   alt={review.name}
                   width={40}
                   height={40}
                   className="rounded-full object-cover"
-                />
+                /> */}
                 <div>
                   <div className="text-sm font-semibold text-secondary">
                     {review.name}
