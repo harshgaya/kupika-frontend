@@ -237,3 +237,21 @@ export async function getOrders() {
   console.log("Fetched checkout data:", json);
   return json.data;
 }
+export async function websiteTrack({ type }) {
+  const res = await fetch(`${API_URL}admin/website-track/${type}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    cache: "no-store",
+  });
+
+  if (!res.ok) {
+    const err = await res.json();
+    return null;
+  }
+
+  const json = await res.json();
+
+  return json.data;
+}

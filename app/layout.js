@@ -4,6 +4,7 @@ import Header from "@/src/components/home/navigation/header";
 import Footer from "@/src/components/home/navigation/footer";
 import FloatingContactButtons from "@/src/components/home/navigation/floating-button";
 import Script from "next/script";
+import ClientTracker from "@/src/components/home/navigation/client-track";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -60,13 +61,14 @@ export const metadata = {
   },
 };
 
-export default async function RootLayout({ children }) {
+export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Header />
+        <ClientTracker />
         {children}
 
         {/* Google Sign-In */}
