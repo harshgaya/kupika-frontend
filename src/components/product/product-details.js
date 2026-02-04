@@ -18,6 +18,7 @@ export default function ProductDetails({ product }) {
   const [qty, setQty] = useState(1);
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const increaseQty = () => setQty((q) => q + 1);
   const decreaseQty = () => setQty((q) => (q > 1 ? q - 1 : 1));
@@ -62,7 +63,15 @@ export default function ProductDetails({ product }) {
           <div className="flex justify-center">
             <div className="w-full max-w-lg">
               {/* MOBILE – Slider */}
-              <div className="flex gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory lg:hidden">
+              <div
+                className="flex gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory lg:hidden"
+                onScroll={(e) => {
+                  const index = Math.round(
+                    e.target.scrollLeft / e.target.clientWidth,
+                  );
+                  setActiveIndex(index);
+                }}
+              >
                 {product.gallery_images?.map((img, index) => (
                   <div
                     key={index}
@@ -81,7 +90,20 @@ export default function ProductDetails({ product }) {
                 ))}
               </div>
 
-              {/* DESKTOP – Thumbnails + Main Image */}
+              <div className="mt-3 flex justify-center gap-2 lg:hidden">
+                {product.gallery_images?.map((_, index) => (
+                  <span
+                    key={index}
+                    className={`h-2 rounded-full transition-all duration-300
+                      ${
+                        activeIndex === index
+                          ? "w-4 bg-secondary"
+                          : "w-2 bg-gray-300"
+                      }
+                    `}
+                  />
+                ))}
+              </div>
               <DesktopImageGallery
                 images={product.gallery_images}
                 title={product.title}
