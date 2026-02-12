@@ -1,9 +1,15 @@
 "use client";
+import { websiteTrack } from "@/src/lib/api";
 import { whatsapp } from "@/src/lib/constants";
 import { useState } from "react";
 
 export default function AddressPopup({ open, onClose }) {
   if (!open) return null;
+
+  const handleButtonClick = (type) => {
+    // fire-and-forget (do NOT await)
+    websiteTrack({ type });
+  };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
@@ -22,6 +28,7 @@ export default function AddressPopup({ open, onClose }) {
 
         <div className="mt-6 flex flex-col gap-3">
           <a
+            onClick={() => handleButtonClick("whatsapp_click")}
             href={whatsapp}
             target="_blank"
             className="w-full rounded-full bg-green-500 py-3 text-white font-semibold text-lg"
