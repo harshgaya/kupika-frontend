@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import ModalHeadlessUi from "../modal/headless-ui-modal";
 import AddressForm from "../modal/address-form";
 import { addGuestAddress } from "@/src/lib/api";
+import AddressPopup from "./address-popup";
 
 const getGuestId = () => {
   let id = localStorage.getItem("guest_id");
@@ -20,21 +21,23 @@ const getGuestId = () => {
 
 export default function AddressesPage({ addresses }) {
   const [modalOpen, setModalOpen] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
   const [editingAddress, setEditingAddress] = useState(null);
   const router = useRouter();
 
-  // ✅ SAVE ADDRESS
+  const handleCancel = () => {
+    setModalOpen(false);
+  };
+
   const handleSaveAddress = async (newAddress) => {
     try {
       if (editingAddress) {
-        // existing logic (unchanged)
         await updateAddress({
           update_type: "address",
           address_id: editingAddress.address_id,
           ...newAddress,
         });
       } else {
-        // ✅ GUEST CREATE (FIXED)
         const guestId = getGuestId();
 
         await addGuestAddress({
@@ -42,9 +45,6 @@ export default function AddressesPage({ addresses }) {
           guest_id: guestId,
         });
       }
-
-      // router.refresh();
-
       setEditingAddress(null);
       setModalOpen(false);
     } catch (error) {
@@ -53,13 +53,11 @@ export default function AddressesPage({ addresses }) {
     }
   };
 
-  // ✅ Edit
   const handleEdit = (addr) => {
     setEditingAddress(addr);
     setModalOpen(true);
   };
 
-  // ✅ Delete (unchanged)
   const handleDelete = async (addr) => {
     if (window.confirm("Are you sure you want to delete this address?")) {
       await updateAddress({
@@ -71,7 +69,6 @@ export default function AddressesPage({ addresses }) {
     }
   };
 
-  // ✅ Select (unchanged)
   const handleSelect = async (addr) => {
     await updateAddress({
       update_type: "selection",
@@ -118,15 +115,16 @@ export default function AddressesPage({ addresses }) {
       {/* Modal */}
       <ModalHeadlessUi
         isOpen={modalOpen}
-        onClose={() => setModalOpen(false)}
+        onClose={handleCancel}
         title={editingAddress ? "Edit Address" : "Add New Address"}
       >
         <AddressForm
-          onClose={() => setModalOpen(false)}
+          onClose={handleCancel}
           handleSaveAddress={handleSaveAddress}
           editingAddress={editingAddress}
         />
       </ModalHeadlessUi>
+      <AddressPopup open={showPopup} onClose={() => setShowPopup(false)} />
     </main>
   );
 }

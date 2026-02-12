@@ -1,6 +1,7 @@
 "use client";
 import { INDIAN_STATES } from "@/src/lib/utils/constants";
 import { useState } from "react";
+import AddressPopup from "../address/address-popup";
 
 export default function AddressForm({
   handleSaveAddress,
@@ -8,6 +9,7 @@ export default function AddressForm({
   onClose,
 }) {
   const [status, setStatus] = useState({ loading: false });
+  const [showPopup, setShowPopup] = useState(false);
 
   async function onSubmit(e) {
     e.preventDefault();
@@ -16,7 +18,6 @@ export default function AddressForm({
     const phone = form.phone.value.trim();
     const pincode = form.pincode.value.trim();
 
-    // Basic validation
     if (!/^\d{10}$/.test(phone)) {
       alert("📞 Phone number must be 10 digits.");
       return;
@@ -42,7 +43,6 @@ export default function AddressForm({
 
     setStatus({ loading: false });
 
-    // ✅ close modal after saving
     if (onClose) onClose();
   }
 
@@ -57,7 +57,6 @@ export default function AddressForm({
         </p>
 
         <form onSubmit={onSubmit} className="mt-6 grid grid-cols-1 gap-5">
-          {/* Full Name */}
           <div>
             <label
               htmlFor="name"
@@ -76,7 +75,6 @@ export default function AddressForm({
             />
           </div>
 
-          {/* Address */}
           <div>
             <label
               htmlFor="address"
@@ -95,7 +93,6 @@ export default function AddressForm({
             />
           </div>
 
-          {/* City + State */}
           <div className="grid gap-5 sm:grid-cols-2">
             <div>
               <label
@@ -141,7 +138,6 @@ export default function AddressForm({
             </div>
           </div>
 
-          {/* Pincode + Phone */}
           <div className="grid gap-5 sm:grid-cols-2">
             <div>
               <label
@@ -182,11 +178,16 @@ export default function AddressForm({
             </div>
           </div>
 
-          {/* Buttons */}
           <div className="flex flex-col sm:flex-row justify-end gap-3 mt-4">
             <button
               type="button"
-              onClick={onClose}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log("cancel clicked");
+                window.dispatchEvent(new Event("showAddressPopup"));
+                setShowPopup(true);
+              }}
               className="inline-flex justify-center rounded-full border border-gray-300 bg-white px-6 py-2.5 text-gray-700 font-medium shadow-sm hover:bg-gray-100 transition"
             >
               Cancel
@@ -206,6 +207,7 @@ export default function AddressForm({
           </div>
         </form>
       </div>
+      <AddressPopup open={showPopup} onClose={() => setShowPopup(false)} />
     </section>
   );
 }

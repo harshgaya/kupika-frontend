@@ -5,7 +5,7 @@ import { Fragment } from "react";
 export default function ModalHeadlessUi({ isOpen, onClose, children }) {
   return (
     <Transition show={isOpen} as={Fragment}>
-      <Dialog as="div" className="relative z-50" onClose={onClose}>
+      <Dialog static as="div" className="relative z-50" onClose={() => {}}>
         {/* Background overlay */}
         <Transition.Child
           as={Fragment}

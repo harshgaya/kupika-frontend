@@ -3,6 +3,7 @@ import BestSellers from "@/src/components/home/hero/best-sellers";
 import CustomerStories from "@/src/components/home/hero/customer-stories";
 import FAQSection from "@/src/components/home/hero/faq";
 import Hero from "@/src/components/home/hero/hero";
+import HeroCarousel from "@/src/components/home/hero/hero-carousal";
 import PurestIngredients from "@/src/components/home/hero/purest-ingredients";
 import WhyChooseKupika from "@/src/components/home/hero/why-choose";
 import ProductReviewVideos from "@/src/components/home/youtube/youtube-review";
@@ -14,6 +15,7 @@ export default async function Home() {
 
   return (
     <>
+      <HeroCarousel />
       <Hero />
       <BestSellers products={data.data} />
       <AyurvedicAdvantage />

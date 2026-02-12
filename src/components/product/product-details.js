@@ -56,13 +56,10 @@ export default function ProductDetails({ product }) {
 
   return (
     <main className="bg-[#FAF8F4]">
-      <section className="mx-auto max-w-6xl px-6 py-16">
+      <section className="mx-auto max-w-6xl px-6 py-2">
         <div className="grid gap-12 lg:grid-cols-2">
-          {/* IMAGE */}
-          {/* IMAGE */}
           <div className="flex justify-center">
             <div className="w-full max-w-lg">
-              {/* MOBILE – Slider */}
               <div
                 className="flex gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory lg:hidden"
                 onScroll={(e) => {
@@ -75,17 +72,18 @@ export default function ProductDetails({ product }) {
                 {product.gallery_images?.map((img, index) => (
                   <div
                     key={index}
-                    className="min-w-full snap-center rounded-2xl bg-white p-6"
+                    className="min-w-full snap-center rounded-2xl bg-white p-2"
                   >
-                    <Image
-                      src={img}
-                      alt={`${product.title} ${index + 1}`}
-                      width={300}
-                      height={520}
-                      className="mx-auto object-contain"
-                      priority={index === 0}
-                      unoptimized
-                    />
+                    <div className="relative w-full aspect-[3/4]">
+                      <Image
+                        src={img}
+                        alt={`${product.title} ${index + 1}`}
+                        fill
+                        className="object-contain"
+                        priority={index === 0}
+                        unoptimized
+                      />
+                    </div>
                   </div>
                 ))}
               </div>
@@ -184,7 +182,7 @@ export default function ProductDetails({ product }) {
       <section className="bg-[#EFECE6] py-16">
         <div className="mx-auto max-w-6xl px-6 text-center">
           <h2 className="text-xl font-semibold text-secondary">
-            Why Choose Horse Fire Tablets?
+            Why Choose Kaam Creator Tablets?
           </h2>
           <p className="mt-2 text-sm text-gray-600">
             Experience the power of authentic Ayurveda.
