@@ -1,18 +1,29 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Young_Serif, Roboto } from "next/font/google";
 import "./globals.css";
 import Header from "@/src/components/home/navigation/header";
 import Footer from "@/src/components/home/navigation/footer";
 import FloatingContactButtons from "@/src/components/home/navigation/floating-button";
 import Script from "next/script";
 import ClientTracker from "@/src/components/home/navigation/client-track";
+import TopMostHeader from "@/src/components/home/navigation/top-most-header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
+const roboto = Roboto({
+  weight: "400",
+  variable: "--font-roboto",
+  subsets: ["latin"],
+});
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+const youngSerif = Young_Serif({
+  weight: "400",
+  variable: "--font-young-serif",
   subsets: ["latin"],
 });
 
@@ -63,10 +74,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html
+      lang="en"
+      className={`${roboto.variable} ${youngSerif.variable} ${geistSans.variable} ${geistMono.variable}`}
+    >
+      <body className="font-roboto antialiased">
+        <TopMostHeader />
         <Header />
         <ClientTracker />
         {children}

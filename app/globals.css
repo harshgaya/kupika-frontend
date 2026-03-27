@@ -12,11 +12,14 @@
 
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-young-serif);
+  --font-roboto: var(--font-roboto);
 }
 
 body {
   background: var(--color-background);
   color: var(--color-foreground);
+  font-family: var(--font-roboto);
 }
 html {
   scroll-behavior: smooth;
