@@ -23,14 +23,21 @@ export default function NightRulesSection() {
 
       {/* Cards */}
       <div
-        className="flex gap-6 overflow-x-auto scroll-smooth
+        className="flex gap-4 md:gap-6 overflow-x-auto scroll-smooth
         [&::-webkit-scrollbar]:hidden
         [-ms-overflow-style:none]
         [scrollbar-width:none]
         snap-x snap-mandatory items-center md:justify-center"
       >
         {cards.map((card) => (
-          <div key={card.id} className="min-w-[280px] flex-shrink-0 snap-start">
+          <div
+            key={card.id}
+            className="
+              min-w-[220px] 
+              md:min-w-[280px]
+              flex-shrink-0 snap-start
+            "
+          >
             <Card img={card.img} />
           </div>
         ))}
@@ -41,13 +48,19 @@ export default function NightRulesSection() {
 
 function Card({ img }) {
   return (
-    <div className="rounded-xl overflow-hidden shadow-md">
+    <div className="rounded-xl overflow-hidden shadow-md bg-white">
       <Image
         src={img}
         alt="banner"
         width={500}
         height={300}
-        className="w-full h-[220px] object-cover"
+        className="
+          w-full
+          h-[160px]          /* 👈 mobile height */
+          md:h-[220px]       /* 👈 desktop height */
+          object-contain     /* 👈 mobile: no crop */
+          md:object-cover    /* 👈 desktop: normal look */
+        "
       />
     </div>
   );
