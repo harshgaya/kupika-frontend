@@ -169,7 +169,7 @@ export default function HappyBrohers() {
   );
 
   return (
-    <section className="w-full py-10 md:py-16 bg-white">
+    <section id="reviews" className="w-full py-10 md:py-16 bg-white">
       <div className="text-center mb-8 md:mb-7 px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-[#1a3d2b] leading-tight font-serif">
           25 lakh satisfied brothers and counting
