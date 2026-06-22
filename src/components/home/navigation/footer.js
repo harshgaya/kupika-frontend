@@ -33,6 +33,10 @@ export default function Footer() {
               Kupika Ayurveda delivers authentic Ayurvedic products crafted with
               natural ingredients to support holistic health and wellness.
             </p>
+
+            <p className="mt-4 text-sm font-medium text-white/80">
+              Kupika Human Wellness LLP
+            </p>
           </div>
 
           {/* SUPPORT */}
@@ -58,6 +62,10 @@ export default function Footer() {
             <ul className="mt-4 space-y-2 text-sm text-white/70">
               <li>Email: {email}</li>
               <li>Phone: {support_mobile}</li>
+              <li>
+                Address: Sector-B2 PKT F DDA Narela, Landmark, Delhi 110040,
+                India.
+              </li>
             </ul>
           </div>
 
@@ -95,11 +103,19 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* LEGAL / REGISTRATION */}
+        <div className="mt-12 grid gap-2 text-xs text-white/60 sm:grid-cols-2 lg:grid-cols-4">
+          <span>Identification No: ACH-4433</span>
+          <span>GSTIN: 10ABCFK1549B1Z3</span>
+          <span>Manufacturing License: DL 477 A&U</span>
+        </div>
+
         {/* DIVIDER */}
-        <div className="mt-16 border-t border-white/10 pt-6">
+        <div className="mt-8 border-t border-white/10 pt-6">
           <div className="flex flex-col items-center justify-center gap-4 text-sm text-white/60 sm:flex-row">
             <span>
-              © {new Date().getFullYear()} Kupika Ayurveda. All rights reserved.
+              © {new Date().getFullYear()} Kupika Human Wellness LLP. All rights
+              reserved.
             </span>
           </div>
         </div>
