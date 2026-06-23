@@ -63,8 +63,7 @@ export default function Footer() {
               <li>Email: {email}</li>
               <li>Phone: {support_mobile}</li>
               <li>
-                Address: Sector-B2 PKT F DDA Narela, Landmark, Delhi 110040,
-                India.
+                Address: Sector-B2 PKT F DDA Narela, Landmark, Delhi 110040
               </li>
             </ul>
           </div>
