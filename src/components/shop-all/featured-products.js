@@ -11,7 +11,7 @@ const products = [
     subtitle: "Ayurvedic Vitality Capsules",
     price: 1799,
     originalPrice: 3000,
-    discount: 10,
+    discount: 40,
     badge: "Best Seller",
     tag: "POWER",
     inStock: true,

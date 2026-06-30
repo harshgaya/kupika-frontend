@@ -15,6 +15,7 @@ import Testimonials from "@/src/components/home/hero/testimonial";
 import WhyChooseKupika from "@/src/components/home/hero/why-choose";
 import NightRulesSection from "@/src/components/home/hero/your-nigh-your-rule";
 import ProductReviewVideos from "@/src/components/home/youtube/youtube-review";
+import FeaturedProducts from "@/src/components/shop-all/featured-products";
 import { getProducts } from "@/src/lib/api";
 import Image from "next/image";
 
@@ -25,6 +26,7 @@ export default async function Home() {
     <>
       <HeroCarousel />
       {/* <Hero /> */}
+      <FeaturedProducts />
       <ShopFromReels />
       <NightRulesSection />
       {/* <BestSellers products={data.data} /> */}

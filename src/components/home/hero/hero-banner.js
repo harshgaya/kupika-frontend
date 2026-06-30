@@ -33,7 +33,7 @@ export default function HeroBanner() {
 
           {/* Button */}
           <Link
-            href="/shop"
+            href="/shop-all"
             className="mt-6 bg-white text-black px-6 py-3 rounded-xl font-medium hover:bg-gray-200 transition"
           >
             Shop All
