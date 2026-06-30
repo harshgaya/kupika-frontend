@@ -8,7 +8,7 @@ import { BsPlayFill, BsPauseFill, BsCart3 } from "react-icons/bs";
 const reels = [
   {
     id: 1,
-    video: "/home/reels/reel-1.mp4",
+    video: "https://d2yhk23ciu9dj0.cloudfront.net/kupika/reels/reel-1.mp4",
     poster: "/home/reels/poster-1.jpg",
     title: "Kupika Kaam Creator",
     price: "₹1799",
@@ -16,7 +16,7 @@ const reels = [
   },
   {
     id: 2,
-    video: "/home/reels/reel-2.mp4",
+    video: "https://d2yhk23ciu9dj0.cloudfront.net/kupika/reels/reel-2.mp4",
     poster: "/home/reels/poster-2.jpg",
     title: "Kupika Kaam Creator",
     price: "₹1799",
@@ -24,7 +24,7 @@ const reels = [
   },
   {
     id: 3,
-    video: "/home/reels/reel-3.mp4",
+    video: "https://d2yhk23ciu9dj0.cloudfront.net/kupika/reels/reel-3.mp4",
     poster: "/home/reels/poster-3.jpg",
     title: "Kupika Kaam Creator",
     price: "₹1799",
@@ -32,7 +32,7 @@ const reels = [
   },
   {
     id: 4,
-    video: "/home/reels/reel-4.mp4",
+    video: "https://d2yhk23ciu9dj0.cloudfront.net/kupika/reels/reel-4.mp4",
     poster: "/home/reels/poster-4.jpg",
     title: "Kupika Kaam Creator",
     price: "₹1799",
@@ -40,7 +40,7 @@ const reels = [
   },
   {
     id: 5,
-    video: "/home/reels/reel-5.mp4",
+    video: "https://d2yhk23ciu9dj0.cloudfront.net/kupika/reels/reel-5.mp4",
     poster: "/home/reels/poster-5.jpg",
     title: "Kupika Kaam Creator",
     price: "₹1799",
