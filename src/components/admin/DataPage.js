@@ -1,3 +1,129 @@
 "use client";
-import {useEffect,useState} from "react";import {PageHead,Toolbar,Pagination,Badge,Empty} from "./AdminUI";
-export default function DataPage({title,subtitle,endpoint,columns,statuses=[],sources=[],action,renderActions}){const[data,setData]=useState({items:[],pagination:{page:1,pages:1}}),[page,setPage]=useState(1),[search,setSearch]=useState(''),[status,setStatus]=useState(''),[source,setSource]=useState(''),[loading,setLoading]=useState(true);async function load(){setLoading(true);const p=new URLSearchParams({page:String(page),limit:'20'});if(search)p.set('search',search);if(status)p.set('status',status);if(source)p.set('source',source);const r=await fetch(`${endpoint}?${p}`,{cache:'no-store'});if(r.status===401){location.href='/admin/login';return}const j=await r.json();setData(j.data||j);setLoading(false)}useEffect(()=>{const t=setTimeout(load,search?300:0);return()=>clearTimeout(t)},[page,search,status,source]);return <><PageHead title={title} subtitle={subtitle} action={action?.(load)}/><section className="panel"><Toolbar search={search} setSearch={v=>{setSearch(v);setPage(1)}}>{sources.length>0&&<select value={source} onChange={e=>{setSource(e.target.value);setPage(1)}}><option value="">All sources</option>{sources.map(s=><option key={s} value={s}>{s}</option>)}</select>}{statuses.length>0&&<select value={status} onChange={e=>{setStatus(e.target.value);setPage(1)}}><option value="">All statuses</option>{statuses.map(s=><option key={s} value={s}>{s.replaceAll('_',' ')}</option>)}</select>}</Toolbar><div className="table-wrap"><table><thead><tr>{columns.map(c=><th key={c.key}>{c.label}</th>)}{renderActions&&<th>Actions</th>}</tr></thead><tbody>{!loading&&data.items?.map(row=><tr key={row._id}>{columns.map(c=><td key={c.key}>{c.render?c.render(row):c.badge?<Badge tone={c.tone?.(row)||'neutral'}>{row[c.key]}</Badge>:(row[c.key]??'—')}</td>)}{renderActions&&<td>{renderActions(row,load)}</td>}</tr>)}</tbody></table>{loading&&<div className="empty">Loading…</div>}{!loading&&!data.items?.length&&<Empty/>}</div><Pagination page={data.pagination?.page||1} pages={data.pagination?.pages||1} onPage={setPage}/></section></>}
+import { useEffect, useState } from "react";
+import { PageHead, Toolbar, Pagination, Badge, Empty } from "./AdminUI";
+export default function DataPage({
+  title,
+  subtitle,
+  endpoint,
+  columns,
+  statuses = [],
+  sources = [],
+  action,
+  renderActions,
+}) {
+  const [data, setData] = useState({
+      items: [],
+      pagination: { page: 1, pages: 1 },
+    }),
+    [page, setPage] = useState(1),
+    [search, setSearch] = useState(""),
+    [status, setStatus] = useState(""),
+    [source, setSource] = useState(""),
+    [loading, setLoading] = useState(true);
+  async function load() {
+    setLoading(true);
+    const p = new URLSearchParams({ page: String(page), limit: "20" });
+    if (search) p.set("search", search);
+    if (status) p.set("status", status);
+    if (source) p.set("source", source);
+    const r = await fetch(`${endpoint}?${p}`, { cache: "no-store" });
+    if (r.status === 401) {
+      location.href = "/admin/login";
+      return;
+    }
+    const j = await r.json();
+    setData(j.data || j);
+    setLoading(false);
+  }
+  useEffect(() => {
+    const t = setTimeout(load, search ? 300 : 0);
+    return () => clearTimeout(t);
+  }, [page, search, status, source]);
+  return (
+    <>
+      <PageHead title={title} subtitle={subtitle} action={action?.(load)} />
+      <section className="panel">
+        <Toolbar
+          search={search}
+          setSearch={(v) => {
+            setSearch(v);
+            setPage(1);
+          }}
+        >
+          {sources.length > 0 && (
+            <select
+              value={source}
+              onChange={(e) => {
+                setSource(e.target.value);
+                setPage(1);
+              }}
+            >
+              <option value="">All sources</option>
+              {sources.map((s) => (
+                <option key={s} value={s}>
+                  {s}
+                </option>
+              ))}
+            </select>
+          )}
+          {statuses.length > 0 && (
+            <select
+              value={status}
+              onChange={(e) => {
+                setStatus(e.target.value);
+                setPage(1);
+              }}
+            >
+              <option value="">All statuses</option>
+              {statuses.map((s) => (
+                <option key={s} value={s}>
+                  {s.replaceAll("_", " ")}
+                </option>
+              ))}
+            </select>
+          )}
+        </Toolbar>
+        <div className="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                {columns.map((c) => (
+                  <th key={c.key}>{c.label}</th>
+                ))}
+                {renderActions && <th>Actions</th>}
+              </tr>
+            </thead>
+            <tbody>
+              {!loading &&
+                data.items?.map((row) => (
+                  <tr key={row._id}>
+                    {columns.map((c) => (
+                      <td key={c.key}>
+                        {c.render ? (
+                          c.render(row)
+                        ) : c.badge ? (
+                          <Badge tone={c.tone?.(row) || "neutral"}>
+                            {row[c.key]}
+                          </Badge>
+                        ) : (
+                          (row[c.key] ?? "—")
+                        )}
+                      </td>
+                    ))}
+                    {renderActions && <td>{renderActions(row, load)}</td>}
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+          {loading && <div className="empty">Loading…</div>}
+          {!loading && !data.items?.length && <Empty />}
+        </div>
+        <Pagination
+          page={data.pagination?.page || 1}
+          pages={data.pagination?.pages || 1}
+          onPage={setPage}
+        />
+      </section>
+    </>
+  );
+}
