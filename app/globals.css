@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+/* =========================
+   TAILWIND THEME TOKENS
+   ========================= */
+@theme {
+  --color-primary: #0f3b2e;
+  --color-secondary: #0f3b2e;
+
+  --color-background: #ffffff;
+  --color-foreground: #171717;
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-young-serif);
+  --font-roboto: var(--font-roboto);
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-roboto);
+}
+html {
+  scroll-behavior: smooth;
+}

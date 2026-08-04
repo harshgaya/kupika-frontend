@@ -1,0 +1,2 @@
+import { collections } from "@/src/lib/db/mongodb"; import { ok } from "@/src/lib/server-utils"; import { requireAdmin } from "@/src/lib/admin/api";
+export async function GET(){const d=await requireAdmin();if(d)return d;const e=await collections.events();const rows=await e.aggregate([{$group:{_id:"$type",count:{$sum:1}}},{$sort:{count:-1}}]).toArray();return ok({events:rows.map(x=>({type:x._id,count:x.count}))});}

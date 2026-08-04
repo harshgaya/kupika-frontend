@@ -1,0 +1,4 @@
+import {createHmac,timingSafeEqual} from "crypto";
+const enc=v=>Buffer.from(JSON.stringify(v)).toString('base64url');
+export function signToken(payload,secret,maxAge){if(!secret)throw new Error('Missing session secret');const body=enc({...payload,exp:Math.floor(Date.now()/1000)+maxAge});const sig=createHmac('sha256',secret).update(body).digest('base64url');return `${body}.${sig}`}
+export function verifyToken(token,secret){if(!token||!secret)return null;const [body,sig]=String(token).split('.');if(!body||!sig)return null;const expected=createHmac('sha256',secret).update(body).digest('base64url');const a=Buffer.from(sig),b=Buffer.from(expected);if(a.length!==b.length||!timingSafeEqual(a,b))return null;const p=JSON.parse(Buffer.from(body,'base64url').toString('utf8'));if(!p.exp||p.exp<Math.floor(Date.now()/1000))return null;return p}
