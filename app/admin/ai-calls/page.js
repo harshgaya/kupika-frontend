@@ -1,2 +1,62 @@
 "use client";
-import DataPage from "@/src/components/admin/DataPage"; export default function Page(){return <DataPage title="AI Calls" subtitle="Plivo call history, outcomes, recordings and related orders." endpoint="/api/admin/ai-calls" columns={[{key:'customerName',label:'Customer'},{key:'mobileNumber',label:'Mobile'},{key:'callReason',label:'Reason'},{key:'callOutcome',label:'Outcome',badge:true},{key:'durationSeconds',label:'Duration',render:r=>r.durationSeconds?`${Math.floor(r.durationSeconds/60)}m ${r.durationSeconds%60}s`:'—'},{key:'recordingUrl',label:'Recording',render:r=>r.recordingUrl?<a href={r.recordingUrl} target="_blank">Play recording</a>:'Pending'}]}/>}
+
+import DataPage from "@/src/components/admin/DataPage";
+
+export default function Page() {
+  return (
+    <DataPage
+      title="AI Calls"
+      subtitle="Plivo call history, outcomes, recordings and related orders."
+      endpoint="/api/admin/ai-calls"
+      columns={[
+        { key: "customerName", label: "Customer" },
+        { key: "mobileNumber", label: "Mobile" },
+        { key: "callReason", label: "Reason" },
+        { key: "callOutcome", label: "Outcome", badge: true },
+
+        {
+          key: "durationSeconds",
+          label: "Duration",
+          render: (r) =>
+            r.durationSeconds
+              ? `${Math.floor(r.durationSeconds / 60)}m ${Math.round(
+                  r.durationSeconds % 60,
+                )}s`
+              : "—",
+        },
+
+        {
+          key: "created_at",
+          label: "Time",
+          render: (r) => {
+            const date = r.created_at || r.createdAt;
+
+            if (!date) return "—";
+
+            return new Date(date).toLocaleString("en-IN", {
+              day: "2-digit",
+              month: "short",
+              year: "numeric",
+              hour: "2-digit",
+              minute: "2-digit",
+              hour12: true,
+            });
+          },
+        },
+
+        {
+          key: "recordingUrl",
+          label: "Recording",
+          render: (r) =>
+            r.recordingUrl ? (
+              <a href={r.recordingUrl} target="_blank" rel="noreferrer">
+                Play recording
+              </a>
+            ) : (
+              "Pending"
+            ),
+        },
+      ]}
+    />
+  );
+}
