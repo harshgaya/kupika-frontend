@@ -121,7 +121,10 @@ function ProductCard({ product }) {
         }`}
     >
       {/* ── Image ── */}
-      <div className="relative overflow-hidden bg-stone-50 aspect-[3/2] sm:aspect-[4/5]">
+      <Link
+        href={product.link}
+        className="relative overflow-hidden bg-stone-50 aspect-[3/2] sm:aspect-[4/5]"
+      >
         <img
           src={product.img}
           alt={product.name}
@@ -209,7 +212,7 @@ function ProductCard({ product }) {
         >
           {product.tag}
         </span>
-      </div>
+      </Link>
 
       {/* ── Card body ── */}
       <div
