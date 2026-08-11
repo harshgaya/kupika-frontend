@@ -149,6 +149,7 @@ export async function POST(req) {
       callSummary: b.call_summary || "",
 
       call_summary: b.call_summary || "",
+      gemini_usage: b.gemini_usage || null,
 
       direction: b.direction || "inbound",
 
