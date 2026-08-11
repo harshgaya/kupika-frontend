@@ -392,12 +392,6 @@ export async function createOrderRecord(input = {}) {
     pv = requireProductPrice(product);
   }
 
-  /*
-   * -------------------------------------------------------
-   * QUANTITY / PRICE
-   * -------------------------------------------------------
-   */
-
   const quantityInput = Number(input.quantity || 1);
 
   const quantity =
