@@ -16,10 +16,10 @@ export async function POST(req) {
       price: undefined,
       source: "ai",
       address: {
-        name: b.customer_name,
+        name: b.customer_name || "",
         phone: b.mobile_number,
-        full_address: b.full_address,
-        street_address: b.full_address,
+        full_address: b.full_address || "",
+        street_address: b.full_address || "",
         city: b.city || "",
         state: b.state || "",
         pincode: b.pincode || "",
