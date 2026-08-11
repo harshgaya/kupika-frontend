@@ -20,19 +20,9 @@ export async function POST(req) {
 
     const aiCalls = await collections.aiCalls();
 
-    // --------------------------------------------------
-    // 1. Check whether this call already exists
-    // --------------------------------------------------
-
     const existingCall = await aiCalls.findOne({
       $or: [{ callUuid: b.call_uuid }, { call_uuid: b.call_uuid }],
     });
-
-    // --------------------------------------------------
-    // 2. EXISTING CALL
-    // Recording / hangup / summary / outcome update
-    // Mobile number is NOT required again.
-    // --------------------------------------------------
 
     if (existingCall) {
       const update = {
@@ -64,18 +54,10 @@ export async function POST(req) {
         update.direction = b.direction;
       }
 
-      // ------------------------------------------------
-      // Recording
-      // ------------------------------------------------
-
       if (b.recording_url !== undefined && b.recording_url !== null) {
         update.recordingUrl = b.recording_url;
         update.recording_url = b.recording_url;
       }
-
-      // ------------------------------------------------
-      // Duration
-      // ------------------------------------------------
 
       if (
         b.duration !== undefined &&
@@ -88,6 +70,10 @@ export async function POST(req) {
           update.duration = duration;
           update.duration_seconds = duration;
         }
+      }
+
+      if (b.gemini_usage !== undefined) {
+        update.gemini_usage = b.gemini_usage;
       }
 
       await aiCalls.updateOne(
@@ -106,11 +92,6 @@ export async function POST(req) {
       });
     }
 
-    // --------------------------------------------------
-    // 3. NEW CALL
-    // Only now do we require the mobile number.
-    // --------------------------------------------------
-
     if (!b.mobile_number) {
       return fail("mobile_number is required when creating a new AI call", 400);
     }
@@ -119,10 +100,6 @@ export async function POST(req) {
       name: b.customer_name || "",
       source: "ai_call",
     });
-
-    // --------------------------------------------------
-    // 4. Build new call document
-    // --------------------------------------------------
 
     const doc = {
       callUuid: b.call_uuid,
@@ -135,20 +112,17 @@ export async function POST(req) {
       mobile_number: user.phone,
 
       customerName: b.customer_name || user.name || "",
-
       customer_name: b.customer_name || user.name || "",
 
       callReason: b.call_reason || "other",
-
       call_reason: b.call_reason || "other",
 
       callOutcome: b.call_outcome || "in_progress",
-
       call_outcome: b.call_outcome || "in_progress",
 
       callSummary: b.call_summary || "",
-
       call_summary: b.call_summary || "",
+
       gemini_usage: b.gemini_usage || null,
 
       direction: b.direction || "inbound",
@@ -160,18 +134,10 @@ export async function POST(req) {
       updated_at: now,
     };
 
-    // --------------------------------------------------
-    // 5. Optional recording
-    // --------------------------------------------------
-
     if (b.recording_url) {
       doc.recordingUrl = b.recording_url;
       doc.recording_url = b.recording_url;
     }
-
-    // --------------------------------------------------
-    // 6. Optional duration
-    // --------------------------------------------------
 
     if (b.duration !== undefined && b.duration !== null && b.duration !== "") {
       const duration = Number(b.duration);
@@ -181,10 +147,6 @@ export async function POST(req) {
         doc.duration_seconds = duration;
       }
     }
-
-    // --------------------------------------------------
-    // 7. Insert
-    // --------------------------------------------------
 
     const result = await aiCalls.insertOne(doc);
 
