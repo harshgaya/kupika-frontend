@@ -12,6 +12,7 @@ export async function POST(req) {
 
   try {
     const b = await req.json();
+    console.log("AI CALL PAYLOAD:", JSON.stringify(b, null, 2));
     const now = new Date();
 
     if (!b.call_uuid) {
